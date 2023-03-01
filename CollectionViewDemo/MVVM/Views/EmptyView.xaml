@@ -4,21 +4,9 @@
              x:Class="CollectionViewDemo.MVVM.Views.EmptyView"
              Title="EmptyView">
 
-    <CollectionView>
-        <CollectionView.ItemsSource>
-            <x:Array Type="{x:Type x:String}">
-                <!--<x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>-->
-            </x:Array>
-        </CollectionView.ItemsSource>
-        <CollectionView.EmptyView>
+    <ContentPage.Resources>
+        <!--Content View is Container that can group layouts or controls to be able to use them in replicated way-->
+        <ContentView x:Key="NoResultsView">
             <Grid>
                 <VerticalStackLayout VerticalOptions="Center">
                     <Image
@@ -32,6 +20,37 @@
                         Text="No Result!"/>
                 </VerticalStackLayout>
             </Grid>
-        </CollectionView.EmptyView>
-    </CollectionView>
+        </ContentView>
+        <ContentView x:Key="ConnectivityIssue">
+            <Grid>
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Image
+                        HeightRequest="150"
+                        Source="no_internet.png"
+                        VerticalOptions="Center"/>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="Center"
+                        Text="Check your internet connection!"/>
+                </VerticalStackLayout>
+            </Grid>
+        </ContentView>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions=".2*, .8*">
+
+        <HorizontalStackLayout>
+            <Label Text="Toggle EmptyViews"/>
+            <Switch Toggled="Switch_Toggled"/>
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="collectionView" Grid.Row="1">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}"/>
+            </CollectionView.ItemsSource>
+            <CollectionView.EmptyView/>
+        </CollectionView>
+    </Grid>
+
 </ContentPage>
