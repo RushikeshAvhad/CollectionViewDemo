@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:DataTemplates="clr-namespace:CollectionViewDemo.Selectors"
              x:Class="CollectionViewDemo.MVVM.Views.DataView"
              Title="DataView">
 
+    <ContentPage.Resources>
+        <DataTemplates:ProductDataTemplateSelector x:Key="ProductTemplates"/>
+    </ContentPage.Resources>
+
     <CollectionView ItemsSource="{Binding Products}"
-                    ItemTemplate="{StaticResource ProductStyle}">
+                    ItemTemplate="{StaticResource ProductTemplates}">
     </CollectionView>
 </ContentPage>
