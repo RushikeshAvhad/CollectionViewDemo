@@ -20,12 +20,24 @@ namespace CollectionViewDemo.MVVM.ViewModels
         public bool IsRefreshing { get; set; }
         public Product SelectedProduct
         {
-            get => selectedProduct; 
+            get => selectedProduct;
             set
             {
                 selectedProduct = value;
             }
         }
+
+        public List<object> SelectedProducts { get; set; } =
+            new List<object>();
+
+        public ICommand ProductsChangedCommand =>
+            new Command(() =>
+            {
+                // Selected Product list will be here in variable
+                var productsList = SelectedProducts;
+
+            });
+
         public ICommand ProductChangedCommand =>
             new Command(() =>
             {

@@ -4,10 +4,15 @@
              x:Class="CollectionViewDemo.MVVM.Views.LayoutsPage"
              Title="LayoutsPage">
     
-    <CollectionView ItemsSource="{Binding Products}"
+    <!--<CollectionView ItemsSource="{Binding Products}"
                     SelectionMode="Single"
                     SelectedItem="{Binding SelectedProduct}"
-                    SelectionChangedCommand="{Binding ProductChangedCommand}">        
+                    SelectionChangedCommand="{Binding ProductChangedCommand}">-->
+    <CollectionView
+        ItemsSource="{Binding Products}"
+        SelectionMode="Multiple"
+        SelectedItem="{Binding SelectedProducts}"
+        SelectionChangedCommand="{Binding ProductsChangedCommand}">
         <CollectionView.Header>
             <Frame BackgroundColor="{StaticResource Primary}">
                 <Label FontAttributes="Bold"
