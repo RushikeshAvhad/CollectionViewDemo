@@ -29,6 +29,13 @@
                     TextColor="Black"/>
             </DataTemplate>
         </CollectionView.GroupHeaderTemplate>
-        
+        <CollectionView.GroupFooterTemplate>
+            <DataTemplate>
+                <Label
+                    Margin="0,0,0,10"
+                    Text="{Binding Count, StringFormat='Total Products: {0:D}'}"
+                    TextColor="MidnightBlue"/>
+            </DataTemplate>
+        </CollectionView.GroupFooterTemplate>
     </CollectionView>
 </ContentPage>
