@@ -4,9 +4,10 @@
              x:Class="CollectionViewDemo.MVVM.Views.EmptyView"
              Title="EmptyView">
 
-    <CollectionView EmptyView="No Data Found">
+    <CollectionView>
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
+                <!--<x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
@@ -14,10 +15,23 @@
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
                 <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
-                <x:String>Row Sample</x:String>
+                <x:String>Row Sample</x:String>-->
             </x:Array>
         </CollectionView.ItemsSource>
-        
+        <CollectionView.EmptyView>
+            <Grid>
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Image
+                        HeightRequest="150"
+                        Source="notfound.png"
+                        VerticalOptions="Center"/>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="Center"
+                        Text="No Result!"/>
+                </VerticalStackLayout>
+            </Grid>
+        </CollectionView.EmptyView>
     </CollectionView>
 </ContentPage>
