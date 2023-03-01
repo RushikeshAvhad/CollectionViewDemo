@@ -34,6 +34,7 @@ public partial class ProductsView : ContentPage
 			.SelectMany(p => p)
 			.FirstOrDefault(x => x.Id == 10);
 
-		collectionView.ScrollTo(product);
+		collectionView.ScrollTo(product, animate: false,
+			position: ScrollToPosition.Center);
     }
 }
