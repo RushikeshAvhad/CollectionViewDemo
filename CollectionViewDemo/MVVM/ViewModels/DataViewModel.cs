@@ -64,6 +64,12 @@ namespace CollectionViewDemo.MVVM.ViewModels
                 Products.Remove((Product)p);
             });
 
+        public ICommand ClearCommand =>
+            new Command(() =>
+            {
+                SelectedProducts = null;
+            });
+
         public DataViewModel()
         {
             RefreshItems();
