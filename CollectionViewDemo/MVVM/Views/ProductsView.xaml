@@ -4,7 +4,8 @@
              x:Class="CollectionViewDemo.MVVM.Views.ProductsView"
              Title="ProductsView">
 
-    <CollectionView IsGrouped="True" ItemsSource="{Binding Products}">
+    <CollectionView IsGrouped="True" ItemsSource="{Binding Products}"
+                    Scrolled="CollectionView_Scrolled">
         <CollectionView.ItemsLayout>
             <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>            
         </CollectionView.ItemsLayout>
