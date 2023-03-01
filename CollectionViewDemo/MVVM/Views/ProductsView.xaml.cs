@@ -23,4 +23,17 @@ public partial class ProductsView : ContentPage
 		Debug.WriteLine("LastVisibleItemIndex" + e.LastVisibleItemIndex);
 		Debug.Write("----------------------------------------------------");
     }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+		var vm =
+			BindingContext as ProductsViewModel;
+
+		var product =
+			vm.Products
+			.SelectMany(p => p)
+			.FirstOrDefault(x => x.Id == 10);
+
+		collectionView.ScrollTo(product);
+    }
 }

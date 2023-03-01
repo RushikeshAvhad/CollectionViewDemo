@@ -4,39 +4,48 @@
              x:Class="CollectionViewDemo.MVVM.Views.ProductsView"
              Title="ProductsView">
 
-    <CollectionView IsGrouped="True" ItemsSource="{Binding Products}"
-                    Scrolled="CollectionView_Scrolled">
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>            
-        </CollectionView.ItemsLayout>
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame BackgroundColor="White" CornerRadius="25">
-                    <VerticalStackLayout>
-                        <Image Source="{Binding Image}"/>
-                        <Label Text="{Binding Name}"/>
-                        <Label Text="{Binding Price}"/>
-                    </VerticalStackLayout>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-        <CollectionView.GroupHeaderTemplate>
-            <DataTemplate>
-                <Label
+    <Grid RowDefinitions=".1*, .9*">
+        <Button Text="Manual Scrolling"
+                Clicked="Button_Clicked"/>
+        <CollectionView 
+            x:Name="collectionView"
+            Grid.Row="1"
+            IsGrouped="True"
+            ItemsSource="{Binding Products}"
+            Scrolled="CollectionView_Scrolled">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="White" CornerRadius="25">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Id}"/>
+                            <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding Price}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Label
                     BackgroundColor="LightGray"
                     FontAttributes="Bold"
                     FontSize="Large"
                     Text="{Binding Name}"
                     TextColor="Black"/>
-            </DataTemplate>
-        </CollectionView.GroupHeaderTemplate>
-        <CollectionView.GroupFooterTemplate>
-            <DataTemplate>
-                <Label
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.GroupFooterTemplate>
+                <DataTemplate>
+                    <Label
                     Margin="0,0,0,10"
                     Text="{Binding Count, StringFormat='Total Products: {0:D}'}"
                     TextColor="MidnightBlue"/>
-            </DataTemplate>
-        </CollectionView.GroupFooterTemplate>
-    </CollectionView>
+                </DataTemplate>
+            </CollectionView.GroupFooterTemplate>
+        </CollectionView>
+    </Grid>
+
 </ContentPage>
