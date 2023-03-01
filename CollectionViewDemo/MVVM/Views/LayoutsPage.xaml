@@ -6,13 +6,13 @@
     
     <CollectionView ItemsSource="{Binding Products}">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Horizontal"
-                               ItemSpacing="50"/>
+            <GridItemsLayout Orientation="Horizontal" Span="3"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Margin="15" WidthRequest="200"
-                       HeightRequest="250">
+                <Frame Margin="15"
+                       WidthRequest="250"
+                       HeightRequest="200">
                     <VerticalStackLayout>
                         <Image Source="{Binding Image}"/>
                         <Label HorizontalTextAlignment="Center"
