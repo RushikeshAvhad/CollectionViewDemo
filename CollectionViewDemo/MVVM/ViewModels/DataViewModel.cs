@@ -31,6 +31,12 @@ namespace CollectionViewDemo.MVVM.ViewModels
                 RefreshItems(Products.Count);
             });
 
+        public ICommand DeleteCommand =>
+            new Command((p) =>
+            {
+                Products.Remove((Product)p);
+            });
+
         public DataViewModel()
         {
             RefreshItems();

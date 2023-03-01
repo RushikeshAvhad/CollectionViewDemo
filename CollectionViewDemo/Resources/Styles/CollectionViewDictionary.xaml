@@ -1,42 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ViewModel="clr-namespace:CollectionViewDemo.MVVM.ViewModels">
 
     <DataTemplate x:Key="ProductStyle">
-        <Grid Margin="15,10,15,0"
-              ColumnDefinitions=".1*,.2*,.7*"
-              RowDefinitions="*,*">
-            <Frame
+        <SwipeView>
+            <SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItem
+                        BackgroundColor="DarkRed"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:DataViewModel}}, Path=DeleteCommand}"
+                        CommandParameter="{Binding}"
+                        IconImageSource="dotnet_bot"/>
+                </SwipeItems>
+            </SwipeView.LeftItems>
+            <Grid 
+                Margin="15,10,15,0"
+                ColumnDefinitions=".1*,.2*,.7*"
+                RowDefinitions="*,*">
+                <Frame
                  Grid.RowSpan="2"
                  Grid.Column="1"
                  Grid.ColumnSpan="2"
                  BorderColor="White">
-                <Frame.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Offset="0" Color="AliceBlue"/>
-                        <GradientStop Offset="1" Color="Gray"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-            </Frame>
-            <Image Grid.RowSpan="2"
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="1,0">
+                            <GradientStop Offset="0" Color="AliceBlue"/>
+                            <GradientStop Offset="1" Color="Gray"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+                <Image Grid.RowSpan="2"
                    Grid.ColumnSpan="2"
                    HeightRequest="100"
                    Source="{Binding Image}"/>
-            <Label
+                <Label
                    Grid.Column="2"
                    FontSize="Large"
                    Text="{Binding Name}"
                    TextColor="Black"
                    VerticalOptions="Center"/>
-            <Label
+                <Label
                    Grid.Column="2"
                    Grid.Row="1"
                    FontSize="Large"
                    Text="{Binding Price, StringFormat='{0:C}'}"
                    TextColor="Black"
                    VerticalOptions="Center"/>
-        </Grid>
+            </Grid>
+        </SwipeView>
+
     </DataTemplate>
 
     <DataTemplate x:Key="OfferStyle">
