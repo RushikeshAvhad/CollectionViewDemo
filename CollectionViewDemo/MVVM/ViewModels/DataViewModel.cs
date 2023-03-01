@@ -67,6 +67,10 @@ namespace CollectionViewDemo.MVVM.ViewModels
         public DataViewModel()
         {
             RefreshItems();
+            SelectedProducts.Add(Products.Skip(5).FirstOrDefault());
+            SelectedProducts.Add(Products.Skip(7).FirstOrDefault());
+
+            SelectedProduct = Products.Skip(2).FirstOrDefault();
         }
 
         private void RefreshItems(int lastIndex = 0)
