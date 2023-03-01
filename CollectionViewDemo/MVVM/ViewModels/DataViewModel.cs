@@ -13,9 +13,24 @@ namespace CollectionViewDemo.MVVM.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class DataViewModel
     {
+        private Product selectedProduct;
+
         public ObservableCollection<Product> Products { get; set; } =
-            new ObservableCollection<Product>();
+                    new ObservableCollection<Product>();
         public bool IsRefreshing { get; set; }
+        public Product SelectedProduct
+        {
+            get => selectedProduct; 
+            set
+            {
+                selectedProduct = value;
+            }
+        }
+        public ICommand ProductChangedCommand =>
+            new Command(() =>
+            {
+                var selectedProduct = SelectedProduct;
+            });
         public ICommand RefreshCommand =>
             new Command(async () =>
             {
